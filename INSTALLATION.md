@@ -101,6 +101,8 @@ If your New Relic account is in the EU datacenter, please run the following to s
 
 12) Deploy the Azure function
 
+`cd AzureDevops2NewRelic && npm install && cd ..`
+
 `func azure functionapp publish newrelic-devops-functions`
 
 13) Done
