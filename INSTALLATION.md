@@ -95,6 +95,10 @@ Please run the following commands, but don't forget to replace the `{{  }}` fiel
 
 `az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "AzureWebJobsServiceBus={{REPLACE_ME_WITH_PRIMARY_CONNECTION_STRING}}"`
 
+If your New Relic account is in the EU datacenter, please run the following to send the data there:
+
+`az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "NEWRELIC_DATACENTER=EU"`
+
 12) Deploy the Azure function
 
 `func azure functionapp publish newrelic-devops-functions`
