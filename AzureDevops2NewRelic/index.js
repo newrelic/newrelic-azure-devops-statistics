@@ -67,7 +67,8 @@ module.exports = async function(context, item) {
                 releaseDefinitionRevision: item.resource.environment.releaseDefinitionRevision,
                 releaseCreatedBy: item.resource.environment.releaseCreatedBy,
                 triggerReason: item.resource.environment.triggerReason,
-                timeToDeploy: item.resource.environment.timeToDeploy * 60, // Convert from minutes to seconds
+                timeToDeploy: item.resource.environment.timeToDeploy,
+                timeToDeploySec: item.resource.environment.timeToDeploy * 60 // Convert from minutes to seconds for use in New Relic dashboards
             });
         break;
         default:
