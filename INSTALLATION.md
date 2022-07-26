@@ -3,6 +3,7 @@
 0) Install Requirements
 
 * [Install Git](https://github.com/git-guides/install-git)
+* A clone of [this repository](https://github.com/newrelic/newrelic-azure-devops-statistics)
 * NodeJS + NPM
     * [Windows & Linux](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
     * [Mac](https://nodejs.dev/learn/how-to-install-nodejs)
