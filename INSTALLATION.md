@@ -80,7 +80,9 @@ If you get a message that the storage account already exists, change the numbers
 
 9) Configure Azure Function App
 
-`az functionapp create --name newrelic-devops-functions --storage-account newrelicdevops1234 --consumption-plan-location westeurope --runtime node --resource-group newrelic-devops --functions-version 3`
+`az functionapp create --name newrelic-devops-functions-1234 --storage-account newrelicdevops1234 --consumption-plan-location westeurope --runtime node --resource-group newrelic-devops --functions-version 4`
+
+If you get a message that the website already exists, change the numbers after `--name newrelic-devops-functions-1234` to something else, for example `--namenewrelic-devops-functions-4567`. Remember the name of your function as we will need it in the next steps.
 
 10) Install Azure functions CLI
 
@@ -90,20 +92,20 @@ You can find the instructions on Microsoft docs: [Install the Azure Functions Co
 
 Please run the following commands, but don't forget to replace the `{{  }}` fields with your own values.
 
-`az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "NEWRELIC_ACCOUNT_ID={{REPLACE_ME_WITH_NEWRELIC_ACCOUNT_ID}}"`
+`az functionapp config appsettings set --name newrelic-devops-functions-1234 --resource-group newrelic-devops --settings "NEWRELIC_ACCOUNT_ID={{REPLACE_ME_WITH_NEWRELIC_ACCOUNT_ID}}"`
 
-`az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "NEWRELIC_INSERT_KEY={{REPLACE_ME_WITH_NEWRELIC_INSERT_KEY}}"`
+`az functionapp config appsettings set --name newrelic-devops-functions-1234 --resource-group newrelic-devops --settings "NEWRELIC_INSERT_KEY={{REPLACE_ME_WITH_NEWRELIC_INSERT_KEY}}"`
 
-`az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "AzureWebJobsServiceBus={{REPLACE_ME_WITH_PRIMARY_CONNECTION_STRING}}"`
+`az functionapp config appsettings set --name newrelic-devops-functions-1234 --resource-group newrelic-devops --settings "AzureWebJobsServiceBus={{REPLACE_ME_WITH_PRIMARY_CONNECTION_STRING}}"`
 
 If your New Relic account is in the EU datacenter, please run the following to send the data there:
 
-`az functionapp config appsettings set --name newrelic-devops-functions --resource-group newrelic-devops --settings "NEWRELIC_DATACENTER=EU"`
+`az functionapp config appsettings set --name newrelic-devops-functions-1234 --resource-group newrelic-devops --settings "NEWRELIC_DATACENTER=EU"`
 
 12) Deploy the Azure function
 
 `cd AzureDevops2NewRelic && npm install && cd ..`
 
-`func azure functionapp publish newrelic-devops-functions`
+`func azure functionapp publish newrelic-devops-functions-1234 --javascript`
 
 13) Done
